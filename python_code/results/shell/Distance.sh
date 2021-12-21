@@ -3,7 +3,7 @@
 	#Taking the Distance's column from data 
        	#Author:Carlos Magno Ribeiro da Costa
 	#e-mail:magno_costa@id.uff.br
-        #How to run : type 'bash scriptCarlosMagnoRibeiroCosta.sh
+        #How to run : type 'bash script-name.sh
 	# nov/2021	
 ################################################################
 

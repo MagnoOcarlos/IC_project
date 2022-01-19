@@ -15,7 +15,7 @@ do
 	
 	sed -i -e '1d' E*
 
-	paste E0.txt  E.txt | awk '{ delta=($1-$2)/($1) ; printf"%0.3f\n", delta}' >../100k/delta_ang$ang.txt
+	paste E0.txt  E.txt | awk '{ delta=($1-$2)/($1) ; printf"%0.9f\n", delta}' >../100k/delta_ang$ang.txt
 
 	rm E*
 done

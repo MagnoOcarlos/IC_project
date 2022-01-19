@@ -15,12 +15,12 @@
 
 	THStack *hs = new THStack("hs","Dividing the arrive spectrum by the injection spectrum");
 
-	ifstream input0("ang0.txt");
-	ifstream input20("ang20.txt");
-	ifstream input40("ang40.txt");
+	ifstream input0("../100k/ang0.txt");
+	ifstream input20("../100k/ang20.txt");
+	ifstream input40("../100k/ang40.txt");
 
-	ifstream input60("ang60.txt");
-	ifstream input80("ang80.txt");
+	ifstream input60("../100k/ang60.txt");
+	ifstream input80("../100k/ang80.txt");
 
 
 	//Injection Spectrum 

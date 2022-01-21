@@ -95,13 +95,12 @@ obs = Observer()
 obs.add((ObserverSurface( Sphere(Vector3d(0,0,0), 3.7*Mpc)) ))
 obs.onDetection(out)
 
-
+'''
 out2 = TextOutput("../geometry/dados2.txt")
 obs2=Observer()
 obs2.add((ObserverSurface( Sphere(Vector3d(0,0,0), 10*Mpc))))
 obs2.setDeactivateOnDetection(False)
 obs2.onDetection(out2)
-
 
 out3 = TextOutput("../geometry/dados3.txt")
 obs3=Observer()
@@ -158,7 +157,7 @@ obs10 =Observer()
 obs10.add((ObserverSurface( Sphere(Vector3d(0,0,0), 100*Mpc))))
 obs10.setDeactivateOnDetection(False)
 obs10.onDetection(out10)
-
+'''
 
 output.setEnergySclae(eV)
 

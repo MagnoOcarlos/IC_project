@@ -90,76 +90,6 @@ print ("B(10 Mpc, 0, 0) ={}nG".format(bField0.getField(Vector3d(10,0,0) * Mpc) /
 
 	As funções nessa região são intuitivas.
 '''
-out = TextOutput("../geometry/dados1.txt")
-obs = Observer()
-obs.add((ObserverSurface( Sphere(Vector3d(0,0,0), 3.7*Mpc)) ))
-obs.onDetection(out)
-
-'''
-out2 = TextOutput("../geometry/dados2.txt")
-obs2=Observer()
-obs2.add((ObserverSurface( Sphere(Vector3d(0,0,0), 10*Mpc))))
-obs2.setDeactivateOnDetection(False)
-obs2.onDetection(out2)
-
-out3 = TextOutput("../geometry/dados3.txt")
-obs3=Observer()
-obs3.add((ObserverSurface( Sphere(Vector3d(0,0,0), 20*Mpc))))
-obs3.setDeactivateOnDetection(False)
-obs3.onDetection(out3)
-
-
-out4 = TextOutput("../geometry/dados4.txt")
-obs4=Observer()
-obs4.add((ObserverSurface( Sphere(Vector3d(0,0,0), 30*Mpc))))
-obs4.setDeactivateOnDetection(False)
-obs4.onDetection(out4)
-
-
-
-out5 = TextOutput("../geometry/dados5.txt")
-obs5=Observer()
-obs5.add((ObserverSurface( Sphere(Vector3d(0,0,0), 50*Mpc))))
-obs5.setDeactivateOnDetection(False)
-obs5.onDetection(out5)
-
-
-out6 = TextOutput("../geometry/dados6.txt")
-obs6=Observer()
-obs6.add((ObserverSurface( Sphere(Vector3d(0,0,0), 60*Mpc))))
-obs5.setDeactivateOnDetection(False)
-obs6.onDetection(out6)
-
-
-out7 = TextOutput("../geometry/dados7.txt")
-obs7=Observer()
-obs7.add((ObserverSurface( Sphere(Vector3d(0,0,0), 70*Mpc))))
-obs7.setDeactivateOnDetection(False)
-obs7.onDetection(out7)
-
-
-out8 = TextOutput("../geometry/dados8.txt")
-obs8=Observer()
-obs8.add((ObserverSurface( Sphere(Vector3d(0,0,0), 80*Mpc))))
-obs8.setDeactivateOnDetection(False)
-obs8.onDetection(out8)
-
-
-out9 = TextOutput("../geometry/dados9.txt")
-obs9=Observer()
-obs9.add((ObserverSurface( Sphere(Vector3d(0,0,0), 90*Mpc))))
-obs9.setDeactivateOnDetection(False)
-obs9.onDetection(out9)
-
-
-out10 = TextOutput("../geometry/dados10.txt")
-obs10 =Observer()
-obs10.add((ObserverSurface( Sphere(Vector3d(0,0,0), 100*Mpc))))
-obs10.setDeactivateOnDetection(False)
-obs10.onDetection(out10)
-'''
-
-output.setEnergySclae(eV)
 
 
 # module setup
@@ -176,9 +106,27 @@ sim.add(ElectronPairProduction(IRB_Gilmore12))
 sim.add(MinimumEnergy(0.01 * EeV))
 sim.add(Redshift())
 sim.add(MaximumTrajectoryLength(4000 * Mpc))
-sim.add(obs)
-#sim.add(obs2)
 
+rmax=80
+r=0
+
+while r<=rmax:
+
+	out = TextOutput("../geometry/dados_radius_"+str(r)+"_Mpc_many_sphere.txt")
+	obs = Observer()
+	if r ==0:
+		obs.add((ObserverSurface( Sphere(Vector3d(0,0,0), 3.7*Mpc)) ))
+	
+	else:
+		
+		obs.add((ObserverSurface( Sphere(Vector3d(0,0,0), r*Mpc)) ))
+	if r != 80:	
+		obs.setDeactivateOnDetection(False)
+	
+	obs.onDetection(out)
+	sim.add(obs)
+	r+=20
+	
 
 #fonte
 

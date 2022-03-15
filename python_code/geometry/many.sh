@@ -37,6 +37,10 @@ do
 	cd plot/
 	cp $plot/*.cc .
 	
+	sed -i "47s/103/$(($i+100))/g" Distance_hist.cc
+	sed -i "47s/3/$i/g" Distance_hist.cc 
+
+
 	#making the plots
 	g++ DeltaE_E0.cc -o plot.exe `root-config --cflags --glibs`
 	./plot.exe
@@ -47,7 +51,7 @@ do
 	g++ Energy_spectrum.cc -o plot.exe `root-config --cflags --glibs`
 	./plot.exe
 	
-	#deleting all unnecessary 
+	#deleting all unnecessary files
 	rm plot.exe
 	rm ../*.txt
         rm *.cc

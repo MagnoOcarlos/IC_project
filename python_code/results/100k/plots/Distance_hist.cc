@@ -117,7 +117,7 @@ int main(int argc, char* argv[]){
 	hArrive0->SetStats(0);
 	hArrive0->GetYaxis()->SetRangeUser(1e-5,1e0);
 	hArrive0->GetYaxis()->SetTitle("Count");
-	hArrive0->GetXaxis()->SetTitle("Distance");
+	hArrive0->GetXaxis()->SetTitle("Distance (Mpc)");
 	hArrive0->Draw("HIST");
 	
 	hArrive20->SetLineColor(kGreen);

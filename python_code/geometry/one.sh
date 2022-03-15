@@ -34,6 +34,10 @@ do
 	cd plot/
 	cp $plot/*.cc .
 
+	sed -i "47s/103/$(($i+100))/g" Distance_hist.cc
+	sed -i "47s/3/$i/g" Distance_hist.cc 
+	
+	
 	g++ DeltaE_E0.cc -o plot.exe `root-config --cflags --glibs`
 	./plot.exe
 	
